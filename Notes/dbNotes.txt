@@ -1,0 +1,7 @@
+create table department
+(
+	department_id int(5),
+	department_name varchar(25),
+	location varchar(20),
+	primary key(department_id)
+);

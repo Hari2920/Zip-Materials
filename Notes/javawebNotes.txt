@@ -1,0 +1,62 @@
+Java Web Application on Servlet
+What is Servlet : Servlet is a java class that runs in a web server. It cannot be able to run in normal jvm.  So it is not a POJO (Plain Old Java Object) class. It accepts request from a html file, proccesses that request and finally forwards the respone/output to the client's web browser through html file. 
+
+All Servlet/Java web technical classes & interfaces are present in javax.servlet, javax.servlet.http & javax.servlet.jsp packages. 
+
+1. Servlet interface
+2. GenericServlet class
+3. HttpServlet class
+4. ServletRequest interface
+5. ServletResponse interface
+6. HttpServletRequest interface
+7. HttpServletResponse
+
+Every user defined Servlet must  extend GenericServlet/HttpServlet.
+GenericServlet implements the Servlet interface. It is an abstract class. It inherites the Object class. It is the base class of all Servlet. 
+HttpServlet is the child class of  GenericServlet class. It is also an abstract class. It accommodates the http technical features like get/post, cookies, session variables etc.
+ServletRequest interface accepts the web client's request and forward to the Servlet class. 
+HttpServletRequest interface accepts the http web client's request and forward to the Servlet class. It is child interface of ServletRequest.
+ServletResponse interface forwards the Servlet's output to the client's browser.
+HttpServletResponse interface forwards the Servlet's output to the http client's browser.
+
+Apache Tomcat  is a web server. It can execute Java classes. It's default port number is 8080. 
+
+Writer ---> VDU (System.out)
+
+Writer ----->Response----> Client Broswer
+                      -------------------------------------
+                        Web Server
+
+What is JSP ?
+Java Server Pages
+It is a java based web development technology which is alike a html page. Here same manner css, bootstrap & javascript codes can be attached like html page. It supports 1. all html tags, 2. all css,boostrap & scripting codes, 3. own tags (developed based on java applications, perform to proccess the data , that's why they called themselves as Action tag). 4. Java programming code. So it is an extension of html page. In industry jsp pages are used for view purpose i.e accept input from users & display proccessed output.
+However usage of Java code inside JSP page is considered not as an ideal  in industry.
+Actually Jsp is a disguised servlet. 
+All jsp files are converted into a servlet which extends HttpJspBase class (it is a derived class of HttpServlet). 
+
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>   ----> Page directive. 
+It directs a jsp page to convert into a java class. 
+
+Who converts a jsp file into a servlet. It is the JspEngine present in jasper application which is auto invoked.
+
+Java Bean class ----> Model
+Jsp Page ---> View
+Servlet  ----> Controller
+
+
+How a servlet invokes another servlet/jsp/html file?
+RequestDispatcher interface & method forward() or include()
+Servlet ---source
+jsp ----target
+
+In case of include() texts  of both Source & target will be displayed on the browser.
+In case of forward() texts  of  only target will be displayed on the browser.
+
+How to transfer data from Source to destination
+request.setAttribute(data's identifier, data to transfer) 
+
+JSTL : JSP Standard Tag Library (JSTL). They are jsp's own tags.
+             every tag has two name prefix & suffix. So a tag appears like
+             <prefix:suffix>  </prefix:suffix>
+             Normally jstl tags are not available in jdk. So external file jstl.jar must be tagged in our application.
